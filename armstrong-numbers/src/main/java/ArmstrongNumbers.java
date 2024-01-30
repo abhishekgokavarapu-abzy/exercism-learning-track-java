@@ -1,9 +1,11 @@
+import java.util.Arrays;
+
 class ArmstrongNumbers {
 
-    boolean isArmstrongNumber(int numberToCheck) {
-
-        throw new UnsupportedOperationException("Delete this statement and write your own implementation.");
-
+    static boolean  isArmstrongNumber(int numberToCheck) {
+        return numberToCheck == Arrays.stream(String.valueOf(numberToCheck).split(""))
+                .mapToInt(Integer::parseInt)
+                .map(i -> (int) Math.pow(i, String.valueOf(numberToCheck).length()))
+                .sum();
     }
-
 }
